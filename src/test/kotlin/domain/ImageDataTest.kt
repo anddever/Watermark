@@ -8,7 +8,7 @@ import kotlin.test.assertEquals
 internal class ImageDataTest {
 
     @Test
-    fun testImageDataOpaque() {
+    fun image24bitTest() {
         val filePath = "src/test/testAssets/10151rgb.png"
         val file = File(filePath)
         val imageData = ImageData.Base(filePath, file)
@@ -25,7 +25,7 @@ internal class ImageDataTest {
     }
 
     @Test
-    fun testImageDataAlpha() {
+    fun image32bitTest() {
         val filePath = "src/test/testAssets/10151rgba.png"
         val file = File(filePath)
         val imageData = ImageData.Base(filePath, file)
@@ -39,5 +39,12 @@ internal class ImageDataTest {
         val actual = imageData.toString()
         assertTrue(file.exists())
         assertEquals(expected, actual)
+    }
+
+    @Test
+    fun imageNotExistTest() {
+        val filePath = "src/test/testAssets/10152rgba.png"
+        val file = File(filePath)
+        assertTrue(!file.exists())
     }
 }
