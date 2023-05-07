@@ -42,6 +42,6 @@ interface ImageData {
         """.trimMargin()
         }
 
-        override fun printImageInfo() = print(this)
+        override fun printImageInfo() = println(this)
     }
 }
