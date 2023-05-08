@@ -18,11 +18,11 @@ interface ImageData {
     ) : ImageData {
 
         private var image: BufferedImage = ImageIO.read(imageFile)
-        private val width: Int get() = image.width
-        private val height: Int get() = image.height
+        val width: Int get() = image.width
+        val height: Int get() = image.height
         private val numOfComponents: Int get() = image.colorModel.numComponents
-        private val numOfColorComponents: Int get() = image.colorModel.numColorComponents
-        private val bitsPerPixel: Int get() = image.colorModel.pixelSize
+        val numOfColorComponents: Int get() = image.colorModel.numColorComponents
+        val bitsPerPixel: Int get() = image.colorModel.pixelSize
         private val transparency: TransparencyValues
             get() = when (image.transparency) {
                 1 -> TransparencyValues.OPAQUE
