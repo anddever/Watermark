@@ -1,4 +1,4 @@
-package domain
+package domain.image
 
 import java.awt.image.BufferedImage
 import java.io.File

@@ -1,4 +1,4 @@
-package domain
+package domain.image
 
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test

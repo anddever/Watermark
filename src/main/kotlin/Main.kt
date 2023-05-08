@@ -1,5 +1,6 @@
-import domain.ImageData
+import domain.image.ImageData
 import java.io.File
+import kotlin.system.exitProcess
 
 fun main() {
     println("Input the image filename:")
@@ -8,5 +9,8 @@ fun main() {
     if (file.exists()) {
         val imageData = ImageData.Base(filePath, file)
         imageData.printImageInfo()
-    } else print("The file $filePath doesn't exist.")
+    } else {
+        print("The file $filePath doesn't exist.")
+        exitProcess(1)
+    }
 }
