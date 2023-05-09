@@ -17,7 +17,7 @@ interface ImageData {
         val imageFile: File,
     ) : ImageData {
 
-        private var image: BufferedImage = ImageIO.read(imageFile)
+        val image: BufferedImage = ImageIO.read(imageFile)
         val width: Int get() = image.width
         val height: Int get() = image.height
         private val numOfComponents: Int get() = image.colorModel.numComponents

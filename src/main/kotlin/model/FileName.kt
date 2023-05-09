@@ -8,7 +8,7 @@ class FileName private constructor(
 ) {
 
     data class Builder(
-        val fileName: String
+        private val fileName: String
     ) {
         fun build(): FileName {
             val name = fileName.substringBeforeLast('.')
