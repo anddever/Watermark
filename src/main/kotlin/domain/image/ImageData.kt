@@ -23,7 +23,7 @@ interface ImageData {
         private val numOfComponents: Int get() = image.colorModel.numComponents
         val numOfColorComponents: Int get() = image.colorModel.numColorComponents
         val bitsPerPixel: Int get() = image.colorModel.pixelSize
-        private val transparency: TransparencyValues
+        val transparency: TransparencyValues
             get() = when (image.transparency) {
                 1 -> TransparencyValues.OPAQUE
                 2 -> TransparencyValues.BITMASK
