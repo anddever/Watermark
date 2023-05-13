@@ -2,6 +2,7 @@ package domain.image
 
 import model.FileName
 import model.FileType
+import model.TypeOfBlending
 import model.WatermarkWeight
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
@@ -31,7 +32,13 @@ class WatermarkGeneratorTest {
             height = originalImage.height
             val weight = WatermarkWeight.Builder("20").build()
             val outputFileName = FileName.Builder(resultFilePath).build()
-            generator = WatermarkGenerator.Base(originalImage, watermarkImage, weight, outputFileName)
+            generator = WatermarkGenerator.Base(
+                originalImage,
+                watermarkImage,
+                weight,
+                outputFileName,
+                TypeOfBlending.NO_ALPHA_CHANNEL
+            )
         }
 
         @JvmStatic
