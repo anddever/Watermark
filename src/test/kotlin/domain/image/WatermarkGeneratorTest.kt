@@ -37,7 +37,8 @@ class WatermarkGeneratorTest {
                 watermarkImage,
                 weight,
                 outputFileName,
-                TypeOfBlending.NO_ALPHA_CHANNEL
+                TypeOfBlending.NO_ALPHA_CHANNEL,
+                null
             )
         }
 

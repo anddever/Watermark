@@ -18,7 +18,8 @@ interface WatermarkGenerator {
         private val watermarkImage: ImageData.Base,
         private val watermarkWeight: Int,
         private val outputFileName: FileName,
-        private val typeOfBlending: TypeOfBlending
+        private val typeOfBlending: TypeOfBlending,
+        private val transparencyColor: Color?
     ) : WatermarkGenerator {
 
         override fun blendImages(): BufferedImage {
@@ -28,7 +29,7 @@ interface WatermarkGenerator {
                 for (y in 0 until originalImage.height) {
                     val inputPixel = Color(originalImage.image.getRGB(x, y))
                     val watermarkPixel = Color(watermarkImage.image.getRGB(x, y), useAlpha)
-                    val color = if (useAlpha && watermarkPixel.alpha == 0) {
+                    val color = if (useAlpha && watermarkPixel.alpha == 0 || isColorsEqual(watermarkPixel, transparencyColor)) {
                         inputPixel
                     } else {
                         Color(
@@ -48,6 +49,11 @@ interface WatermarkGenerator {
             val filePath = "${outputFileName.name}.${outputFileName.extension.name.lowercase()}"
             val outputFile = File(filePath)
             ImageIO.write(watermarked, outputFileName.extension.name.lowercase(), outputFile)
+        }
+
+        private fun isColorsEqual(color1: Color, color2: Color?): Boolean {
+            if (color2 == null) return false
+            return color1.red == color2.red && color1.green == color2.green && color1.blue == color2.blue
         }
     }
 }
